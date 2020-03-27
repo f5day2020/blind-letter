@@ -28,7 +28,7 @@
   </section>
 </article>
 <footer>
-  <a href="../send">다른 메시지 보내기</a>
+  <button href="../send">다른 메시지 보내기</button>
 </footer>
 
 <script>
@@ -160,6 +160,10 @@
       }
     };
     r3.send();
+  });
+
+  document.querySelector('button[href]').addEventListener('click', function (event) {
+    window.location.href = event.currentTarget.getAttribute('href');
   });
 </script>
 </body>
