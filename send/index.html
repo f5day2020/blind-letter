@@ -115,26 +115,6 @@
   document.querySelector('[name=text]').addEventListener('keydown', nextButtonControl);
   document.querySelector('[name=phone]').addEventListener('change', nextButtonControl);
   document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
-
-  document.querySelector('[name=phone]').addEventListener('click', function (event) {
-    const supported = ('contacts' in navigator && 'ContactsManager' in window);
-    const props = ['tel'];
-    const opts = {multiple: true};
-
-    try {
-      navigator.contacts.select(props, opts).then(
-        function (contacts) {
-          console.log(contacts);
-          alert(JSON.stringify(contacts));
-        }
-      ).catch(function (err) {
-        alert(JSON.stringify(err));
-      });
-    } catch (ex) {
-      alert(JSON.stringify(ex));
-      alert('안돼요');
-    }
-  });
 </script>
 </body>
 </html>
