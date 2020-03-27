@@ -33,7 +33,7 @@
 </head>
 <body class="container loaded">
 <header>
-  <h1>발송완료.</h1>
+  <h1 class="js_header">발송완료.👏</h1>
 </header>
 <article>
   <section class="form">
@@ -42,6 +42,7 @@
     </div>
   </section>
   <section class="form search">
+    <h4>✉️ 모든 사용자들이 보낸 메세지들</h4>
     <form class="search-box">
       <input type="text" name="q" placeholder="전화번호로 검색하기 (숫자만 입력)"/>
       <button type="submit">🔍</button>
@@ -58,6 +59,12 @@
 <script>
   var comments = {};
   var urlParams = getUrlParams();
+  if (urlParams.id !== undefined && urlParams.id !== 'undefined') {
+    var header = document.querySelector('.js_header');
+    header.innerHTML = header.innerHTML + '<br>내용 전체를 확인하세요.';
+  }
+
+
   var getCommentIdAPIUrl = convertToCorsUrl('https://ou2lgi5d9l.execute-api.ap-northeast-2.amazonaws.com/default/comment');
   var r1 = new XMLHttpRequest();
   if (urlParams.id !== undefined) {

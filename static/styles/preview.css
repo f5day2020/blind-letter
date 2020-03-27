@@ -43,6 +43,9 @@ body:not(.loaded) {
   justify-content: center;
   padding-bottom: 172px;
 }
+.container article > .search h4 {
+  margin-bottom: 8px;
+}
 .container article > .search .search-box {
   height: 52px;
   -webkit-border-radius: 10px;

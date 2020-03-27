@@ -18,6 +18,7 @@ $color-input-text: $color-dark-blue;
 $color-input-placeholder: $color-grey;
 
 $color-button-disabled: #cccccc;
+$color-banner-background: $color-light-grey;
 
 
 html, body {
@@ -69,6 +70,9 @@ body:not(.loaded) {
     }
 
     & > .search {
+      h4 {
+        margin-bottom: 8px;
+      }
       .search-box {
         height: 52px;
         -webkit-border-radius: 10px;

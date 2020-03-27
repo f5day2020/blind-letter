@@ -1,1 +1,12 @@
 @import 'base';
+
+.container article > .form .banner {
+  padding-bottom: 80px;
+
+  span {
+    display: inline;
+    width: 100%;
+    background-color: $color-light-grey;
+    border-radius: 10px;
+  }
+}
