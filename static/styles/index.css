@@ -247,7 +247,6 @@ body:not(.loaded) {
 }
 .container article figure img {
   width: 100%;
-  min-width: 480px;
   max-width: 640px;
 }
 
