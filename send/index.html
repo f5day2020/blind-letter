@@ -53,6 +53,13 @@
   </footer>
 </form>
 <script>
+  var ments = [
+    '자니?',
+    '흔들리는 꽃들 속에서~ 네 샴푸향이 느껴진거야~~',
+    '노래방 갈래?',
+  ];
+  document.querySelector('textarea[name=text]').placeholder = ments[Math.floor(Math.random() * ments.length + 1)];
+
   var urlParams = getUrlParams();
   if (urlParams.id === undefined || urlParams.id.length === 0) {
     document.querySelector('.js_header').innerHTML = '받을 사람의 휴대폰 번호와<br>하고싶은 말을 입력하세요.'
@@ -106,6 +113,14 @@
   document.querySelector('[name=text]').addEventListener('keydown', nextButtonControl);
   document.querySelector('[name=phone]').addEventListener('change', nextButtonControl);
   document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
+
+  document.querySelector('[name=phone]').addEventListener('click', async (event) => {
+    if (navigator.contacts === undefined) {
+      return;
+    }
+
+    event.currentTarget.value = await navigator.contacts.select(['tel'], {multiple: false});
+  })
 </script>
 </body>
 </html>

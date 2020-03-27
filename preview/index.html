@@ -46,7 +46,7 @@
 <form class="container" method="get" action="../send/">
   <input type="hidden" name="id"/>
   <header>
-    <h1>익명의 누군가가 <br><span class="js_nick"></span>님에게 하고싶은 말:</h1>
+    <h1>익명의 누군가가 <br>님에게 하고싶은 말:</h1>
   </header>
   <article class="banner">
     <section class="form">
@@ -75,10 +75,8 @@
       comments = response.content.comments[0];
 
       var original_message = comments.text;
-      var nickname = document.querySelector('.js_nick');
       var el_preview_message = document.querySelector('.js_preview_message');
 
-      nickname.innerText = decodeURI(comments.nick);
       el_preview_message.innerText = decodeURI(original_message).slice(0, 5) + '...';
 
       setLoaded();
