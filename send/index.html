@@ -114,13 +114,37 @@
   document.querySelector('[name=phone]').addEventListener('change', nextButtonControl);
   document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
 
-  document.querySelector('[name=phone]').addEventListener('click', async (event) => {
-    if (navigator.contacts === undefined) {
-      return;
-    }
+  document.querySelector('[name=phone]').addEventListener('click', function (event) {
+    var api = (navigator.contacts || navigator.mozContacts);
 
-    event.currentTarget.value = await navigator.contacts.select(['tel'], {multiple: false});
-  })
+    if (api && !!api.select) { // new Chrome API
+      api.select(['tel'], {multiple: false})
+        .then(function (contacts) {
+          alert(JSON.stringify(contacts))
+        })
+        .catch(function (err) {
+          alert('연락처 로드 실패')
+        });
+
+    } else if (api && !!api.find) { // old Firefox OS API
+      var criteria = {
+        sortBy: 'familyName',
+        sortOrder: 'ascending'
+      };
+
+      api.find(criteria)
+        .then(function (contacts) {
+          alert(JSON.stringify(contacts))
+        })
+        .catch(function (err) {
+          alert('연락처 로드 실패')
+        });
+
+    } else {
+      alert('지원하지 않는 브라우저입니다.');
+    }
+    // event.currentTarget.value = await navigator.contacts.select(['tel'], {multiple: false});
+  });
 </script>
 </body>
 </html>
