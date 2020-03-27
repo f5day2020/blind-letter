@@ -70,19 +70,27 @@ body:not(.loaded) {
 
     & > .search {
       .search-box {
-        position: relative;
         height: 52px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: solid 1px $color-dark-grey;
+        background-color: $color-white;
+        padding: 0 0 0 16px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        * > {
+          display: inline-block;
+        }
 
         input[type=text] {
-          width: 100%;
+          border: 0;
+          background-color: transparent;
+          width: calc(100% - 55px);
           height: 100%;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
-          border: solid 1px $color-dark-grey;
-          background-color: $color-white;
           outline: none;
-          padding: 16px 16px 13px 16px;
 
           &::placeholder {
             color: $color-input-placeholder;
@@ -90,9 +98,7 @@ body:not(.loaded) {
         }
 
         button {
-          position: absolute;
-          right: 5px;
-          top: calc(50% - 1em);
+          margin-right: 5px;
 
           background: none;
           border: 0;
@@ -228,6 +234,12 @@ body:not(.loaded) {
     box-sizing: border-box;
     background: $color-black;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, $color-white 40%);
+
+    transition-duration: 0.3s;
+
+    &.hide {
+      opacity: 0;
+    }
 
     button, a {
       width: 100%;

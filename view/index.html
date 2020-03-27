@@ -108,6 +108,20 @@
   };
   r2.send();
 
+  document.querySelector('.search-box input[name=q]').addEventListener('focusin', function (event) {
+    document.querySelector('footer').classList.add('hide');
+  });
+
+  document.querySelector('.search-box input[name=q]').addEventListener('focusout', function (event) {
+    document.querySelector('footer').classList.remove('hide');
+  });
+
+  document.querySelector('.search-box input[name=q]').addEventListener('keydown', function (event) {
+    var canSearch = event.currentTarget.value.length >= 10 || event.currentTarget.value.length === 0;
+    document.querySelector('.search-box button[type=submit]').style = canSearch ? '' : 'display: none;';
+    document.querySelector('.search-box button[type=button]').style = canSearch ? 'display: none;' : '';
+  });
+
   document.querySelector('.search-box input[name=q]').addEventListener('keydown', function (event) {
     var canSearch = event.currentTarget.value.length >= 10 || event.currentTarget.value.length === 0;
     document.querySelector('.search-box button[type=submit]').style = canSearch ? '' : 'display: none;';
