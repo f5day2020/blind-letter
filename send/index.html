@@ -54,7 +54,9 @@
 </form>
 <script>
   var ments = [
-    '자니?',
+    '지난 번 빌린 돈 조금만 늦게 갚을게요.',
+    '지금 그 머리 잘 어울려요.',
+    '모든 게 궁금해 How’s your day Oh tell me',
     '흔들리는 꽃들 속에서~ 네 샴푸향이 느껴진거야~~',
     '노래방 갈래?',
   ];
@@ -115,34 +117,24 @@
   document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
 
   document.querySelector('[name=phone]').addEventListener('click', function (event) {
-    var api = (navigator.contacts || navigator.mozContacts);
+    const supported = ('contacts' in navigator && 'ContactsManager' in window);
 
-    if (api && !!api.select) { // new Chrome API
-      api.select(['tel'], {multiple: false})
-        .then(function (contacts) {
-          alert(JSON.stringify(contacts))
-        })
-        .catch(function (err) {
-          alert('연락처 로드 실패')
-        });
-
-    } else if (api && !!api.find) { // old Firefox OS API
-      var criteria = {
-        sortBy: 'familyName',
-        sortOrder: 'ascending'
-      };
-
-      api.find(criteria)
-        .then(function (contacts) {
-          alert(JSON.stringify(contacts))
-        })
-        .catch(function (err) {
-          alert('연락처 로드 실패')
-        });
-
-    } else {
-      alert('지원하지 않는 브라우저입니다.');
+    if (supported) {
+      getContacts();
     }
+
+    async function getContacts() {
+      const props = ['tel'];
+      const opts = {multiple: false};
+
+      try {
+        const contacts = await navigator.contacts.select(props, opts);
+        alert(JSON.stringify(contacts));
+      } catch (ex) {
+        alert('연락처로드 실패');
+      }
+    }
+
     // event.currentTarget.value = await navigator.contacts.select(['tel'], {multiple: false});
   });
 </script>
