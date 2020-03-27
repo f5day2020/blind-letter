@@ -230,16 +230,23 @@ body:not(.loaded) {
     transform: translateY(0);
   }
 }
-.container article img {
+.container article figure {
+  -webkit-box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
   width: 100%;
-  max-width: 640px;
+  margin: 0;
+  border-radius: 70px;
   transform: translateY(200px);
   animation-name: slideup;
   animation-timing-function: ease-out;
-  animation-delay: 0.3s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
+}
+.container article figure img {
+  width: 100%;
+  max-width: 640px;
 }
 
 /*# sourceMappingURL=index.css.map */

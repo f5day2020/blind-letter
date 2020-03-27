@@ -1,0 +1,10 @@
+{
+  "short_name": "블라인드 레터",
+  "name": "블라인드 레터",
+  "start_url": "",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [],
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF"
+}
