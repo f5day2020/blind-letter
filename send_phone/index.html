@@ -82,8 +82,10 @@
     var r = new XMLHttpRequest();
     r.open('GET', submitUrl, true);
     r.onreadystatechange = function () {
-      document.querySelector('footer button').disabled = false;
-      if (r.readyState !== 4 || r.status !== 200) return;
+      if (r.readyState !== 4 || r.status !== 200) {
+        document.querySelector('footer button').disabled = false;
+        return;
+      }
       var response = JSON.parse(r.responseText);
 
       if (response.message === 'success') {
