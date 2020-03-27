@@ -1,0 +1,19 @@
+@import 'base';
+
+.container {
+  article {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    div {
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      max-width: 640px;
+    }
+  }
+}

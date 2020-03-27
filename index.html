@@ -1,12 +1,32 @@
 <html lang="ko" dir="ltr">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <link href="../static/styles/base.css">
-  </head>
-  <body>
+  <link href="static/styles/index.css" rel="stylesheet">
+  <script type="text/javascript" src="static/scripts/base.js"></script>
 
-  </body>
+  <script>
+  </script>
+</head>
+<body class="loaded container">
+<header>
+  <h1 class="js_header">블라인드 레터,<br>익명의 메세지를 남겨보세요.</h1>
+</header>
+<article>
+  <div>
+    <img src="static/images/preview.png" alt="블라인드 레터, 익명의 메세지를 남겨보세요.">
+  </div>
+</article>
+<footer>
+  <button href="send">시작하기</button>
+</footer>
+
+<script>
+  document.querySelector('button[href]').addEventListener('click', function (event) {
+    window.location.href = event.currentTarget.getAttribute('href');
+  });
+</script>
+</body>
 </html>
