@@ -118,24 +118,23 @@
 
   document.querySelector('[name=phone]').addEventListener('click', function (event) {
     const supported = ('contacts' in navigator && 'ContactsManager' in window);
+    const props = ['tel'];
+    const opts = {multiple: true};
 
-    if (supported) {
-      getContacts();
+    try {
+      navigator.contacts.select(props, opts).then(
+        function (contacts) {
+          console.log(contacts);
+          alert(JSON.stringify(contacts));
+        }
+      ).catch(function (err) {
+        alert(JSON.stringify(err);
+      )
+      });
+    } catch (ex) {
+      alert(JSON.stringify(ex));
+      alert('안돼요');
     }
-
-    async function getContacts() {
-      const props = ['tel'];
-      const opts = {multiple: false};
-
-      try {
-        const contacts = await navigator.contacts.select(props, opts);
-        alert(JSON.stringify(contacts));
-      } catch (ex) {
-        alert('연락처로드 실패');
-      }
-    }
-
-    // event.currentTarget.value = await navigator.contacts.select(['tel'], {multiple: false});
   });
 </script>
 </body>
