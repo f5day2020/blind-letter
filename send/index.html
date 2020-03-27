@@ -65,8 +65,8 @@
     button.disabled = nick.value.length === 0 || text.value.length === 0;
   }
 
-  document.querySelector('[name=nick]').addEventListener('keyup', nextButtonControl);
-  document.querySelector('[name=text]').addEventListener('keyup', nextButtonControl);
+  document.querySelector('[name=nick]').addEventListener('keydown', nextButtonControl);
+  document.querySelector('[name=text]').addEventListener('keydown', nextButtonControl);
 </script>
 </body>
 </html>

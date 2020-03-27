@@ -97,7 +97,7 @@
     button.disabled = nick.value.length === 0 || text.value.length === 0 || phone.value.length === 0;
   }
 
-  document.querySelector('[name=phone]').addEventListener('keyup', nextButtonControl);
+  document.querySelector('[name=phone]').addEventListener('keydown', nextButtonControl);
 </script>
 </body>
 </html>
