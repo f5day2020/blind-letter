@@ -32,7 +32,8 @@
   </script>
 </head>
 <body class="loaded">
-<form method="get" action="../send_phone/" class="container">
+<form method="get" action="https://iv8s34mel0.execute-api.ap-northeast-2.amazonaws.com/default/comment_write"
+      class="container js_send_form">
   <input type="hidden" name="id"/>
   <header>
     <h1 class="js_header">내용을 확인하려면<br>나도 다른 사람에게 메세지를<br>보내야해요.</h1>
@@ -40,34 +41,71 @@
   <article>
     <section class="form">
       <label>
-        <h4>받을 사람의 이름</h4>
-        <input type="text" name="nick" placeholder="김별명"/>
+        <h4>받을 사람의 휴대폰 번호</h4>
+        <input type="text" name="phone" placeholder="01000000000" pattern="\d*"/>
         <h4>하고싶은 말</h4>
         <textarea name="text" placeholder="아무말"></textarea>
       </label>
     </section>
   </article>
   <footer>
-    <button disabled>다음</button>
+    <button type="submit" disabled>보내기</button>
   </footer>
 </form>
 <script>
   var urlParams = getUrlParams();
   if (urlParams.id === undefined || urlParams.id.length === 0) {
-    document.querySelector('.js_header').innerHTML = '받을 사람의 이름과<br>하고싶은 말을 입력하세요.'
+    document.querySelector('.js_header').innerHTML = '받을 사람의 휴대폰 번호와<br>하고싶은 말을 입력하세요.'
   }
   document.querySelector('[name=id]').value = urlParams.id;
 
+  document.querySelector('.js_send_form').addEventListener('submit', function (event) {
+    var form = event.currentTarget;
+    var queryStringList = [];
+
+    document.querySelector('footer button').disabled = true;
+
+    form.querySelectorAll('input').forEach(function (input) {
+      if (input.name !== 'id') {
+        queryStringList.push(input.name + '=' + input.value);
+      }
+    });
+    form.querySelectorAll('textarea').forEach(function (textarea) {
+      if (textarea.value !== undefined || textarea.value !== 'undefined') {
+        queryStringList.push(textarea.name + '=' + textarea.value);
+      }
+    });
+    event.preventDefault();
+
+    var submitUrl = convertToCorsUrl(form.action + '?' + queryStringList.join('&'));
+    var r = new XMLHttpRequest();
+    r.open('GET', submitUrl, true);
+    r.onreadystatechange = function () {
+      if (r.readyState !== 4 || r.status !== 200) {
+        document.querySelector('footer button').disabled = false;
+        return;
+      }
+      var response = JSON.parse(r.responseText);
+
+      if (response.message === 'success') {
+        window.location.href = '../view/' + (urlParams.id !== undefined && urlParams.id !== 'undefined' ? '?id=' + urlParams.id : '');
+      }
+    };
+    r.send();
+  });
+
   function nextButtonControl() {
     var button = document.querySelector('footer button');
-    var nick = document.querySelector('[name=nick]');
+    var phone = document.querySelector('[name=phone]');
     var text = document.querySelector('[name=text]');
 
-    button.disabled = nick.value.length === 0 || text.value.length === 0;
+    button.disabled = phone.value.length === 0 || text.value.length === 0;
   }
 
-  document.querySelector('[name=nick]').addEventListener('keydown', nextButtonControl);
+  document.querySelector('[name=phone]').addEventListener('keydown', nextButtonControl);
   document.querySelector('[name=text]').addEventListener('keydown', nextButtonControl);
+  document.querySelector('[name=phone]').addEventListener('change', nextButtonControl);
+  document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
 </script>
 </body>
 </html>
