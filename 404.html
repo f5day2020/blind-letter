@@ -1,0 +1,55 @@
+<html lang="ko" dir="ltr">
+<head>
+  <title>블라인드 레터, 익명의 메세지를 남겨보세요.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <link rel="manifest" href="./manifest.json">
+  <meta property="og:title" content="블라인드 레터">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://blindletter.net">
+  <meta property="og:description" content="전하기 어려운 말, 이제 익명으로 소통하세요.">
+  <meta property="og:image" content="http://blindletter.net/static/images/ogimage.png">
+  <meta property="og:image:alt" content="블라인드 레터 - 전하기 어려운 말, 이제 익명으로 소통하세요.">
+  <meta property="og:image:width" content="672">
+  <meta property="og:image:height" content="400">
+
+  <link id="favicon" type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+
+  <link href="static/styles/index.css" rel="stylesheet">
+  <script type="text/javascript" src="static/scripts/base.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162011414-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-162011414-1');
+  </script>
+</head>
+<body class="loaded container">
+<header>
+  <h1>페이지를 찾을 수 없습니다 ...</h1>
+</header>
+<article class="banner">
+  <section class="form">
+    <div class="banner">
+      <img src="static/images/icon.png" alt="페이지를 찾을 수 없습니다.">
+    </div>
+  </section>
+</article>
+<footer>
+  <button href="/">홈으로</button>
+</footer>
+
+<script>
+  document.querySelector('button[href]').addEventListener('click', function (event) {
+    window.location.href = event.currentTarget.getAttribute('href');
+  });
+</script>
+</body>
+</html>
