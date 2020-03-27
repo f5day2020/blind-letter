@@ -10,6 +10,7 @@
   <meta property="og:url" content="http://blindletter.net">
   <meta property="og:description" content="전하기 어려운 말, 이제 익명으로 소통하세요.">
   <meta property="og:image" content="http://blindletter.net/static/images/ogimage.png">
+  <meta property="og:image:alt" content="블라인드 레터 - 전하기 어려운 말, 이제 익명으로 소통하세요.">
   <meta property="og:image:width" content="672">
   <meta property="og:image:height" content="400">
 
@@ -69,6 +70,9 @@
   document.querySelector('.js_send_form').addEventListener('submit', function (event) {
     var form = event.currentTarget;
     var queryStringList = [];
+
+    document.querySelector('footer button').disabled = true;
+
     form.querySelectorAll('input').forEach(function (input) {
       queryStringList.push(input.name + '=' + input.value)
     });
@@ -78,6 +82,7 @@
     var r = new XMLHttpRequest();
     r.open('GET', submitUrl, true);
     r.onreadystatechange = function () {
+      document.querySelector('footer button').disabled = false;
       if (r.readyState !== 4 || r.status !== 200) return;
       var response = JSON.parse(r.responseText);
 
