@@ -11,9 +11,27 @@
       text-align: center;
     }
 
+    @keyframes slideup {
+      from {
+        transform: translateY(200px);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
     img {
       width: 100%;
       max-width: 640px;
+
+      transform: translateY(200px);
+      animation-name: slideup;
+      animation-timing-function: ease-out;
+      animation-delay: 0.3s;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
     }
   }
 }
