@@ -94,6 +94,11 @@ body:not(.loaded) {
   font-weight: 500;
   line-height: 1.35;
   padding: 15px 16px;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 .container article > .form label input[type=text]::placeholder, .container article > .form label textarea::placeholder {
   color: #8b95a1;
