@@ -112,41 +112,39 @@ body:not(.loaded) {
         margin-bottom: 6px;
       }
 
-      label {
-        input[type=text], textarea {
-          margin-bottom: 24px;
-          width: 100%;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
-          border: solid 1px $color-input-border;
-          background-color: $color-input-background;
-          outline: none;
-          color: $color-input-text;
-          font-size: 17px;
-          font-weight: 500;
-          line-height: 1.35;
+      input[type=text], textarea {
+        margin-bottom: 24px;
+        width: 100%;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: solid 1px $color-input-border;
+        background-color: $color-input-background;
+        outline: none;
+        color: $color-input-text;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.35;
 
-          padding: 15px 16px;
+        padding: 15px 16px;
 
-          -webkit-user-select: text;
-          -khtml-user-select: text;
-          -moz-user-select: text;
-          -ms-user-select: text;
-          user-select: text;
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
 
-          &::placeholder {
-            color: $color-input-placeholder;
-          }
+        &::placeholder {
+          color: $color-input-placeholder;
         }
+      }
 
-        input[type=text] {
-          height: 52px;
-        }
+      input[type=text] {
+        height: 52px;
+      }
 
-        textarea {
-          resize: none;
-        }
+      textarea {
+        resize: none;
       }
     }
   }

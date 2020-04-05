@@ -80,7 +80,7 @@ body:not(.loaded) {
   margin-top: 0;
   margin-bottom: 6px;
 }
-.container article > .form label input[type=text], .container article > .form label textarea {
+.container article > .form input[type=text], .container article > .form textarea {
   margin-bottom: 24px;
   width: 100%;
   -webkit-border-radius: 10px;
@@ -100,13 +100,13 @@ body:not(.loaded) {
   -ms-user-select: text;
   user-select: text;
 }
-.container article > .form label input[type=text]::placeholder, .container article > .form label textarea::placeholder {
+.container article > .form input[type=text]::placeholder, .container article > .form textarea::placeholder {
   color: #8b95a1;
 }
-.container article > .form label input[type=text] {
+.container article > .form input[type=text] {
   height: 52px;
 }
-.container article > .form label textarea {
+.container article > .form textarea {
   resize: none;
 }
 .container footer {
