@@ -49,7 +49,7 @@
     </section>
   </article>
   <footer>
-    <button type="submit" disabled>보내기</button>
+    <button type="submit">보내기</button>
   </footer>
 </form>
 <script>
@@ -112,10 +112,10 @@
     button.disabled = phone.value.length === 0 || text.value.length === 0;
   }
 
-  document.querySelector('[name=phone]').addEventListener('keydown', nextButtonControl);
-  document.querySelector('[name=text]').addEventListener('keydown', nextButtonControl);
-  document.querySelector('[name=phone]').addEventListener('change', nextButtonControl);
-  document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
+  // document.querySelector('[name=phone]').addEventListener('keydown', nextButtonControl);
+  // document.querySelector('[name=text]').addEventListener('keydown', nextButtonControl);
+  // document.querySelector('[name=phone]').addEventListener('change', nextButtonControl);
+  // document.querySelector('[name=text]').addEventListener('change', nextButtonControl);
 </script>
 </body>
 </html>
